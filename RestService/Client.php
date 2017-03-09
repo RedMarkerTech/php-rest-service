@@ -249,7 +249,9 @@ class Client
     public function jsonFormat($json)
     {
         if (!is_string($json)) $json = json_encode($json);
-
+	//this method is extremely slow for large payloads
+	//so I'm disabling it completely for now
+	return $json;
         $result = '';
         $pos = 0;
         $strLen = strlen($json);
